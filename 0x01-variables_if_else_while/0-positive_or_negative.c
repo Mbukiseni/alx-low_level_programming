@@ -2,9 +2,9 @@
 #include <time.h>
 #include <stdio.h>
 /**
- *main - Entry point
- *Discription: 'Check for the number if it is positive or negative'
- *Return: always 0
+ *main - Determine if a random number is positive, negative or zero.
+ *
+ *Return: 0 on success
  */
 int main(void)
 {
@@ -24,5 +24,5 @@ int main(void)
 	{
 		printf("%d is negative\n", n);
 	}
-        return (0)
+        return (0);
 }		

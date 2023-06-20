@@ -2,9 +2,9 @@
 #include <stdio.h>
 
 /**
- * main - check the code
+ * main - The integer value.
  *
- * Return: Always 0.
+ * Return: The absolute value of the input.
  */
 int main(void)
 {
@@ -24,7 +24,6 @@ int main(void)
 	printf("%d\n", r);
 
 	r = _abs(-98);
-
 	printf("%d\n", r);
 return (0);
 }

@@ -8,19 +8,45 @@
  *   Return: 0
  */
 
-int _atoi(char *s)
+int main(void)
+
 {
-	int sign = 1;
-	unsigned int num = 0;
+	char password[84];
+	int index = 0, sum = 0, diff_half1, diff_half2;
 
-	do {
-		if (*s == '-')
-			sign *= -1;
-		else if (*s >= '0' && *s <= '9')
-			num = num * 10 + (*s - '0');
-		else if (num > 0)
-			break;
-	} while (*s++);
+	srand(time(0));
 
-	return (num * sign);
+	while (sum < 2772)
+	
+	{
+		password[index] = 33 + rand() % 94;
+		sum += password[index++];
+	}
+
+	password[index] = '\0';
+
+	if (sum != 2772)
+	{
+		diff_half1 = (sum - 2772) / 2;
+		diff_half2 = (sum - 2772) / 2;
+
+		if ((sum - 2772) % 2 != 0)															diff_half1++;
+																
+		for (index = 0; password[index]; index++)
+																				{
+																					if (password[index] >= (33 + diff_half1))
+																					{
+				password[index] -= diff_half1;																																	break;																																			}
+																				}
+																				for (index = 0; password[index]; index++)
+																				{
+																					if (password[index] >= (33 + diff_half2))																															{
+																						password[index] -= diff_half2;
+																						break;
+																					}
+																				}
+	}
+ 
+	printf("%s", password);
+	return (0);
 }

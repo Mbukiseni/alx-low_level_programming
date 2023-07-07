@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 /**
-  * main - Args content to be printed 
+  * main - Args content to be printed
   * @argc: the number of arguments
   * @argv: the array of vectors
   *

@@ -1,9 +1,9 @@
 #include "main.h"
 
 /**
-*_memset - The _memset() function 
-* the first n bytes 
-* pointed 
+*_memset - The _memset() function
+* the first n bytes
+* pointed
 *@s:target
 *@b: constant byte
 *@n:byte number

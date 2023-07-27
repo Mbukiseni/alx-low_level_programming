@@ -1,63 +1,54 @@
 #include <stdlib.h>
 #include <string.h>
-#include <stdio.h>
 #include "lists.h"
 
 /**
-  * add_node_end - Adds new node to the end of the linked list
-  * @head: Original linked list
-  * @str: String to add to the node
-  *
-  * Return: 1 or 0
-  */
-list_t *add_node_end(list_t **head, const char *str)
+ * _strlen - determines the length of a string
+ * @str: to find the length of the string
+ *
+ * Return: string length
+ */
+unsigned int _strlen(char *str)
 {
-	list_t *new_list, *temp;
+	unsigned int i;
 
-	if (str != NULL)
-	{
-		new_list = malloc(sizeof(list_t));
-		if (new_list == NULL)
-			return (NULL);
-
-		new_list->str = strdup(str);
-		new_list->len = _strlen(str);
-		new_list->next = NULL;
-
-		if (*head == NULL)
-		{
-			*head  = new_list;
-			return (*head);
-		}
-		else
-		{
-			temp = *head;
-			while (temp->next)
-				temp = temp->next;
-
-			temp->next = new_list;
-			return (temp);
-		}
-	}
-
-	return (NULL);
+	for (i = 0; str[i]; i++)
+		;
+	return (i);
 }
 
 /**
-  * _strlen - Determines the length of a string
-  * @s: The string to count
-  *
-  * Return: The string length
-  */
-int _strlen(const char *s)
+ * add_node_end - adds a brand new node to the end of linked list
+ * @head: double pointer
+ * @str: string to add
+ *
+ * Return: pointer
+ */
+list_t *add_node_end(list_t **head, const char *str)
 {
-	int c = 0;
+	list_t *new, *tmp;
 
-	while (*s)
+	if (str == NULL)
+		return (NULL);
+	new = malloc(sizeof(list_t));
+	if (new == NULL)
+		return (NULL);
+	new->str = strdup(str);
+	if (new->str == NULL)
 	{
-		s++;
-		c++;
+		free(new);
+		return (NULL);
 	}
-
-	return (c);
+	new->len = _strlen(new->str);
+	new->next = NULL;
+	if (*head == NULL)
+	{
+		*head = new;
+		return (new);
+	}
+	tmp = *head;
+	while (tmp->next)
+		tmp = tmp->next;
+	tmp->next = new;
+	return (new);
 }

@@ -3,7 +3,7 @@
 #include <string.h>
 
 /**
- * main - Generates and prints passwords for the crackme5 
+ * main - Generates and prints passwords for the crackme5
  * @argc: Number of arguments supplied to the program.
  * @argv: Array of pointers to the arguments.
  *
